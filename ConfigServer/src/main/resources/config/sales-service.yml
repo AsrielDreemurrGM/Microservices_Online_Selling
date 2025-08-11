@@ -8,7 +8,7 @@ spring:
       active: native
   data:
       mongodb:
-        uri: mongodb://admin:admin@127.0.0.1:27017/ebac?authSource=admin&retryWrites=true&w=majority
+        uri: mongodb://admin:admin@127.0.0.1:27017/admin?authSource=admin&retryWrites=true&w=majority
         database: sales
         auto-index-creation: true
 
