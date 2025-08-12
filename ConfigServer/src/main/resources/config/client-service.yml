@@ -2,14 +2,12 @@ server:
   port: 8081
   wait-time-in-ms-when-sync-empty: 3000
 
-spring:
   spring:
     profiles:
       active: native
   data:
       mongodb:
         uri: mongodb://admin:admin@127.0.0.1:27017/admin?authSource=admin&retryWrites=true&w=majority
-        host: online-selling-mongo-database
         database: client
         auto-index-creation: true
 

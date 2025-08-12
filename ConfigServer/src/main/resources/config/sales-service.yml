@@ -2,7 +2,6 @@ server:
   port: 8083
   wait-time-in-ms-when-sync-empty: 3000
 
-spring:
   spring:
     profiles:
       active: native
@@ -19,3 +18,5 @@ application:
   clienteService:
     url: http://localhost:8081
     endpointConsultarCliente: ${application.clientService.url}/client/isRegistered/{id}
+
+application-version: 1.0
