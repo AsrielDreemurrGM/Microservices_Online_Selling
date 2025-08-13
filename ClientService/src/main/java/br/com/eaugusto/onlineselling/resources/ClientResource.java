@@ -19,6 +19,13 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 
 /**
+ * REST controller exposing endpoints for managing clients.
+ * <p>
+ * Provides CRUD operations, search capabilities by ID or CPF, and an endpoint
+ * to verify if a client is registered. Uses {@link SearchClient} for read
+ * operations and {@link RegisterClient} for write operations.
+ * </p>
+ *
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 10, 2025
  */

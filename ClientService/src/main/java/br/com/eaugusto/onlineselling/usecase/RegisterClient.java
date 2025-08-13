@@ -8,6 +8,21 @@ import br.com.eaugusto.onlineselling.repository.IClientRepository;
 import jakarta.validation.Valid;
 
 /**
+ * Use case service for registering, updating, and removing clients.
+ * <p>
+ * Handles mapping between {@link ClientDTO} and {@link Client} entities and
+ * delegates persistence operations to {@link IClientRepository}.
+ * </p>
+ *
+ * <p>
+ * Primary responsibilities:
+ * </p>
+ * <ul>
+ * <li>Insert new clients into the database.</li>
+ * <li>Update existing client records.</li>
+ * <li>Delete clients by their ID.</li>
+ * </ul>
+ *
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 10, 2025
  */

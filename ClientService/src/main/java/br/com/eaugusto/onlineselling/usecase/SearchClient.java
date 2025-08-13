@@ -11,6 +11,22 @@ import br.com.eaugusto.onlineselling.dto.ClientDTO;
 import br.com.eaugusto.onlineselling.exception.EntityNotFoundException;
 import br.com.eaugusto.onlineselling.repository.IClientRepository;
 
+/**
+ * Use case service for searching and retrieving client information.
+ * <p>
+ * Provides paginated search for all clients, lookup by ID, CPF, and existence
+ * check. Converts {@link Client} entities to {@link ClientDTO} for API
+ * responses.
+ * </p>
+ *
+ * <p>
+ * Throws {@link EntityNotFoundException} when requested resources are not found
+ * in the database.
+ * </p>
+ *
+ * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
+ * @since Aug 10, 2025
+ */
 @Service
 public class SearchClient {
 

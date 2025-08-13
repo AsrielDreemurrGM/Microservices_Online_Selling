@@ -25,6 +25,31 @@ import br.com.eaugusto.onlineselling.resources.ClientResource;
 import br.com.eaugusto.onlineselling.usecase.RegisterClient;
 import br.com.eaugusto.onlineselling.usecase.SearchClient;
 
+/**
+ * Unit tests for {@link ClientResource}.
+ * <p>
+ * Uses Mockito to mock dependencies ({@link SearchClient} and
+ * {@link RegisterClient}) and verify that the controller's endpoints behave as
+ * expected.
+ * </p>
+ *
+ * <p>
+ * Test coverage includes:
+ * </p>
+ * <ul>
+ * <li>Searching clients by ID, CPF, and pagination.</li>
+ * <li>Checking if a client is registered.</li>
+ * <li>Registering, updating, and removing clients.</li>
+ * </ul>
+ *
+ * <p>
+ * Relies on generated random test data via {@link ThreadLocalRandom} to
+ * simulate different client entries.
+ * </p>
+ *
+ * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
+ * @since Aug 10, 2025
+ */
 class ClienteResourceTest {
 
 	@InjectMocks
