@@ -25,6 +25,17 @@ import br.com.eaugusto.onlineselling.errorhandling.ApiError;
 import lombok.extern.slf4j.Slf4j;
 
 /**
+ * Global exception handler for REST API.
+ * <p>
+ * Provides centralized handling for common exceptions such as validation
+ * failures, entity not found, duplicate keys, bad requests, and unsupported
+ * operations.
+ * </p>
+ * <p>
+ * Returns structured {@link ApiError} responses with appropriate HTTP status
+ * codes.
+ * </p>
+ * 
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 10, 2025
  */

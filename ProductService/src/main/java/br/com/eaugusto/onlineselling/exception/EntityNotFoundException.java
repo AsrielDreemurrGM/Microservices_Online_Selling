@@ -7,6 +7,12 @@ import java.util.stream.IntStream;
 import org.springframework.util.StringUtils;
 
 /**
+ * Exception thrown when an entity is not found in the database.
+ * <p>
+ * Provides a detailed message including the entity type and the parameters used
+ * in the search.
+ * </p>
+ * 
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 10, 2025
  */
@@ -14,6 +20,12 @@ public class EntityNotFoundException extends RuntimeException {
 
 	private static final long serialVersionUID = 1567124766010201099L;
 
+	/**
+	 * Constructs a new exception for an entity not found.
+	 * 
+	 * @param entityClass     the entity class
+	 * @param searchParamsMap alternating key/value parameters used for searching
+	 */
 	public EntityNotFoundException(Class<?> entityClass, String... searchParamsMap) {
 		super(EntityNotFoundException.generateMessage(entityClass.getSimpleName(),
 				toMap(String.class, String.class, (Object[]) searchParamsMap)));

@@ -16,9 +16,19 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
-* @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
-* @since Aug 10, 2025
-*/
+ * Represents a structured API error response.
+ * <p>
+ * Contains general error information such as status, timestamp, message, debug
+ * message, and optional sub-errors for validation.
+ * </p>
+ * <p>
+ * Sub-errors can be added automatically for field-level, object-level, and
+ * constraint violation validation failures.
+ * </p>
+ * 
+ * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
+ * @since Aug 10, 2025
+ */
 @Getter
 @Setter
 public class ApiError {
