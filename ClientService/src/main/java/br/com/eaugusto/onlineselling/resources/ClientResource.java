@@ -42,22 +42,25 @@ public class ClientResource {
 	}
 
 	@GetMapping
+	@Operation(summary = "Searches all Clients")
 	public ResponseEntity<Page<ClientDTO>> searchAllClients(Pageable pageable) {
 		return ResponseEntity.ok(searchClient.searchAllClients(pageable));
 	}
 
 	@GetMapping(value = "/{id}")
-	@Operation(summary = "Searches a Client by Id")
+	@Operation(summary = "Searches a Client by its Id")
 	public ResponseEntity<ClientDTO> searchById(@PathVariable String id) {
 		return ResponseEntity.ok(searchClient.searchById(id));
 	}
 
 	@GetMapping(value = "isRegistered/{id}")
+	@Operation(summary = "Checks if a Client exists by searching for its Id")
 	public ResponseEntity<Boolean> isRegistered(@PathVariable String id) {
 		return ResponseEntity.ok(searchClient.isRegistered(id));
 	}
 
 	@PostMapping
+	@Operation(summary = "Registers a Client")
 	public ResponseEntity<ClientDTO> register(@RequestBody @Valid ClientDTO clientDto) {
 		return ResponseEntity.ok(registerClient.register(clientDto));
 	}
