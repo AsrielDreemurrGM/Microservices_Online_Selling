@@ -11,6 +11,22 @@ import br.com.eaugusto.onlineselling.dto.ProductDTO;
 import br.com.eaugusto.onlineselling.exception.EntityNotFoundException;
 import br.com.eaugusto.onlineselling.repository.IProductRepository;
 
+/**
+ * Use case service for searching and retrieving product information.
+ * <p>
+ * Provides paginated search for all products, lookup by ID, CPF, and existence
+ * check. Converts {@link Product} entities to {@link ProductDTO} for API
+ * responses.
+ * </p>
+ *
+ * <p>
+ * Throws {@link EntityNotFoundException} when requested resources are not found
+ * in the database.
+ * </p>
+ *
+ * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
+ * @since Aug 12, 2025
+ */
 @Service
 public class SearchProduct {
 

@@ -8,6 +8,21 @@ import br.com.eaugusto.onlineselling.repository.IProductRepository;
 import jakarta.validation.Valid;
 
 /**
+ * Use case service for registering, updating, and removing products.
+ * <p>
+ * Handles mapping between {@link ProductDTO} and {@link Product} entities and
+ * delegates persistence operations to {@link IProductRepository}.
+ * </p>
+ *
+ * <p>
+ * Primary responsibilities:
+ * </p>
+ * <ul>
+ * <li>Insert new products into the database.</li>
+ * <li>Update existing product records.</li>
+ * <li>Delete products by their ID.</li>
+ * </ul>
+ *
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 10, 2025
  */

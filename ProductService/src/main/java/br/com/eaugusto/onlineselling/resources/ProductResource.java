@@ -19,6 +19,13 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 
 /**
+ * REST controller exposing endpoints for managing products.
+ * <p>
+ * Provides CRUD operations, search capabilities by ID or CPF, and an endpoint
+ * to verify if a product is registered. Uses {@link SearchProduct} for read
+ * operations and {@link RegisterProduct} for write operations.
+ * </p>
+ *
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 10, 2025
  */
