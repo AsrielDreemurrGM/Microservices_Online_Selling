@@ -29,6 +29,17 @@ import br.com.eaugusto.onlineselling.usecase.RegisterProduct;
 import br.com.eaugusto.onlineselling.usecase.SearchProduct;
 
 /**
+ * Unit tests for the {@link ProductResource} class.
+ * <p>
+ * Validates the behavior of product search, registration, update, removal, and
+ * existence check endpoints by mocking dependencies ({@link SearchProduct} and
+ * {@link RegisterProduct}).
+ * <p>
+ * Ensures correct integration between the resource layer and the service layer
+ * by verifying returned data and HTTP responses.
+ * <p>
+ * Uses Mockito for mocking and JUnit 5 for assertions.
+ *
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 12, 2025
  */

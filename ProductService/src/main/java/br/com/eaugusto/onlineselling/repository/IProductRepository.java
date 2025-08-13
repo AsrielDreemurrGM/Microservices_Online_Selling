@@ -11,7 +11,7 @@ import br.com.eaugusto.onlineselling.domain.Product;
  * Repository interface for managing {@link Product} entities in MongoDB.
  * <p>
  * Extends {@link MongoRepository} to provide basic CRUD operations and adds a
- * custom query method for searching a client by CPF.
+ * custom query method for searching a product by Code.
  * </p>
  *
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)

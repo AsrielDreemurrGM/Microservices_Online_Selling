@@ -9,7 +9,7 @@ import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 
 /**
- * OpenAPI (Swagger) configuration for the Client Service.
+ * OpenAPI (Swagger) configuration for the Product Service.
  * <p>
  * Defines metadata for API documentation, including version, description, and
  * contact details.
