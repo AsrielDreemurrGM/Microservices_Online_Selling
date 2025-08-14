@@ -54,7 +54,7 @@ public class Sales {
 	private Status status;
 
 	public void addProduct(Product productToBeAdded, Integer quantity) {
-		validateStatus();
+		validateSaleStatus();
 		Optional<ProductQuantity> existingProductQuantity = findProductQuantityByCode(productToBeAdded.getCode());
 		if (existingProductQuantity.isPresent()) {
 			ProductQuantity productQuantity = existingProductQuantity.get();
@@ -68,14 +68,14 @@ public class Sales {
 		recalculateTotalSalesPrice();
 	}
 
-	public void validateStatus() {
+	public void validateSaleStatus() {
 		if (this.status == Status.FINISHED || this.status == Status.CANCELED) {
 			throw new UnsupportedOperationException("Impossible to modify a FINISHED or CANCELED sale");
 		}
 	}
 
 	public void removeProduct(Product productToBeRemoved, Integer quantity) {
-		validateStatus();
+		validateSaleStatus();
 		Optional<ProductQuantity> existingProductQuantity = findProductQuantityByCode(productToBeRemoved.getCode());
 
 		if (existingProductQuantity.isPresent()) {
@@ -91,7 +91,7 @@ public class Sales {
 	}
 
 	public void removeAllProducts() {
-		validateStatus();
+		validateSaleStatus();
 		productsSet.clear();
 		totalPrice = BigDecimal.ZERO;
 	}
