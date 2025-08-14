@@ -12,11 +12,11 @@ server:
         auto-index-creation: true
 
 application:
-  produtoService:
+  productService:
     url: http://localhost:8082
-    endpointConsultarProduto: ${application.productService.url}/product
-  clienteService:
+    searchProductEndpoint: ${application.productService.url}/product
+  clientService:
     url: http://localhost:8081
-    endpointConsultarCliente: ${application.clientService.url}/client/isRegistered/{id}
+    searchClientEndpoint: ${application.clientService.url}/client/isRegistered/{id}
 
 application-version: 1.0

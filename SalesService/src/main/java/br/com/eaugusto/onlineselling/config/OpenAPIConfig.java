@@ -29,8 +29,8 @@ public class OpenAPIConfig {
 	 */
 	@Bean
 	OpenAPI customOpenAPI(@Value("${application-version}") String appVersion) {
-		return new OpenAPI().info(new Info().title("Product Service").version(appVersion)
-				.description("Service for managing Products").termsOfService("http://swagger.io/terms/")
+		return new OpenAPI().info(new Info().title("Sales Service").version(appVersion)
+				.description("Service for managing Sales").termsOfService("http://swagger.io/terms/")
 				.contact(new Contact().name("Eduardo Augusto").email("eduardo.motta.980315@gmail.com")));
 	}
 }
