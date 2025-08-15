@@ -33,6 +33,19 @@ import br.com.eaugusto.onlineselling.usecases.RegisterSale;
 import br.com.eaugusto.onlineselling.usecases.SearchSale;
 
 /**
+ * Unit tests for {@link SalesResources}.
+ * <p>
+ * Validates the behavior of all REST endpoints exposed by SalesResources,
+ * including:
+ * <ul>
+ * <li>Searching all sales and searching by sale code</li>
+ * <li>Registering, finishing, and canceling sales</li>
+ * <li>Adding, removing, and clearing products in a sale</li>
+ * <li>Domain-level validations such as disallowing modifications to finished
+ * sales</li>
+ * </ul>
+ * Uses Mockito for dependency mocking and JUnit 5 for assertions.
+ * 
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 15, 2025
  */

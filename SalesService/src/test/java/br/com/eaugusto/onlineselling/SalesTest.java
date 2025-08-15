@@ -16,6 +16,19 @@ import br.com.eaugusto.onlineselling.domain.Sales;
 import br.com.eaugusto.onlineselling.enums.Status;
 
 /**
+ * Unit tests for the {@link Sales} and {@link ProductQuantity} domain classes.
+ * <p>
+ * Ensures correct calculation of quantities and total prices when adding or
+ * removing products, as well as enforcing sale modification rules for finished
+ * or canceled sales.
+ * <p>
+ * Also verifies behavior of:
+ * <ul>
+ * <li>Incrementing and decrementing product quantities</li>
+ * <li>Clearing all products from a sale</li>
+ * <li>Default state of {@link ProductQuantity}</li>
+ * </ul>
+ * 
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 15, 2025
  */
