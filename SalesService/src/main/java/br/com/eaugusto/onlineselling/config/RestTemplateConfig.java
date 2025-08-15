@@ -5,6 +5,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 /**
+ * Configuration class for creating and managing {@link RestTemplate} beans.
+ * <p>
+ * Provides a {@link RestTemplate} instance for making HTTP requests to external
+ * services.
+ * </p>
+ * 
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 14, 2025
  */

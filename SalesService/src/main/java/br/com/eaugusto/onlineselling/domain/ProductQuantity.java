@@ -9,6 +9,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
+ * Represents a specific quantity of a {@link Product} and its total price.
+ * <p>
+ * Provides methods for adding or subtracting quantities while keeping the total
+ * price updated accordingly.
+ * </p>
+ *
+ * <p>
+ * Used within {@link Sales} to track the products included in a sale.
+ * </p>
+ * 
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 14, 2025
  */

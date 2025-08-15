@@ -20,6 +20,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
+ * Represents a sale transaction in the system.
+ * <p>
+ * Tracks products, total price, sale date, status, and related operations such
+ * as adding, removing, and clearing products.
+ * </p>
+ *
+ * <p>
+ * Includes business rules such as preventing modifications to finished or
+ * canceled sales.
+ * </p>
+ *
+ * <p>
+ * Stored in the "sales" collection in MongoDB.
+ * </p>
+ * 
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 14, 2025
  */

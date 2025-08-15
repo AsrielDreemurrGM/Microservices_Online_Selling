@@ -11,6 +11,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
+ * Represents a product in the sales domain.
+ * <p>
+ * Contains details such as code, name, description, and price. Validation
+ * constraints ensure product data integrity.
+ * </p>
+ *
+ * <p>
+ * Instances of this class are immutable when created via Lombok's builder
+ * pattern.
+ * </p>
+ * 
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 14, 2025
  */
