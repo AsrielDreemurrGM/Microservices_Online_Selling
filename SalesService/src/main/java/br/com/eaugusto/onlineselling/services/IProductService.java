@@ -10,9 +10,9 @@ import br.com.eaugusto.onlineselling.domain.Product;
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 14, 2025
  */
-@FeignClient(name = "product", url = "${application.productService.searchProductEndpoint}")
+@FeignClient(name = "product", url = "${application.productService.url}")
 public interface IProductService {
 
-	@GetMapping(value = "/{code}", produces = "application/json", headers = "application/json")
-	Product findProduct(@RequestParam("code") String productCode);
+	@GetMapping(value = "/product/code/{code}", produces = "application/json", headers = "application/json")
+	Product findProductByCode(@RequestParam("code") String productCode);
 }

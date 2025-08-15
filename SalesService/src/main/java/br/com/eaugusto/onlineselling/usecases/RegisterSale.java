@@ -93,7 +93,7 @@ public class RegisterSale {
 	}
 
 	private Product findProductByCode(String productCode) {
-		Product product = productService.findProduct(productCode);
+		Product product = productService.findProductByCode(productCode);
 		if (product == null) {
 			throw new EntityNotFoundException(Product.class, "code", productCode);
 		}

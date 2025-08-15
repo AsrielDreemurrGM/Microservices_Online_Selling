@@ -44,6 +44,12 @@ public class SalesResources {
 		return ResponseEntity.ok(searchSale.searchAllSales(pageable));
 	}
 
+	@GetMapping("/code/{saleCode}")
+	@Operation(summary = "Find a sale by its Code")
+	public ResponseEntity<Sales> searchSaleByCode(@PathVariable String saleCode) {
+		return ResponseEntity.ok(searchSale.searchByCode(saleCode));
+	}
+
 	@PostMapping
 	@Operation(summary = "Registers a new Sale", description = "Registers a Sale. Example: {\"code\":\"S001\", \"clientId\":\"1234\", \"saleDate\":\"2025-08-14T10:00:00Z\"}")
 	@ApiResponse(responseCode = "200", description = "Sale registered successfully", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, examples = @ExampleObject(value = "{\"id\":\"abc123\", \"code\":\"S001\", \"clientId\":\"1234\", \"status\":\"STARTED\", \"totalPrice\":0.0}")))

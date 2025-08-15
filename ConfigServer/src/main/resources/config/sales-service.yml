@@ -14,7 +14,6 @@ server:
 application:
   productService:
     url: http://localhost:8082
-    searchProductEndpoint: ${application.productService.url}/product
   clientService:
     url: http://localhost:8081
     searchClientEndpoint: ${application.clientService.url}/client/isRegistered/{id}

@@ -25,8 +25,8 @@ public class SearchSale {
 		return salesRepository.findAll(pageable);
 	}
 
-	public Sales searchByCode(String code) {
-		return salesRepository.searchByCode(code)
-				.orElseThrow(() -> new EntityNotFoundException(Sales.class, "code", code));
+	public Sales searchByCode(String salesCode) {
+		return salesRepository.searchByCode(salesCode)
+				.orElseThrow(() -> new EntityNotFoundException(Sales.class, "code", salesCode));
 	}
 }
