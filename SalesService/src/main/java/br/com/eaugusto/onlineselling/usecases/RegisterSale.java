@@ -16,6 +16,12 @@ import br.com.eaugusto.onlineselling.services.IProductService;
 import jakarta.validation.Valid;
 
 /**
+ * Service responsible for registering and updating sales.
+ * <p>
+ * This class provides business logic for creating, modifying, finishing,
+ * canceling, and managing products within sales.
+ * </p>
+ * 
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 14, 2025
  */
@@ -34,6 +40,12 @@ public class RegisterSale {
 		this.clientService = clientService;
 	}
 
+	/**
+	 * Registers a new sale.
+	 *
+	 * @param salesDTO the sale data transfer object
+	 * @return the created sale
+	 */
 	public Sales registerSale(@Valid SalesDTO salesDTO) {
 		Sales sale = convertToDomain(salesDTO, Status.STARTED);
 		validateIfClientIsRegistered(sale.getClientId());
@@ -54,10 +66,22 @@ public class RegisterSale {
 				.productsSet(new HashSet<>()).build();
 	}
 
+	/**
+	 * Updates an existing sale.
+	 *
+	 * @param sale the sale entity
+	 * @return the updated sale
+	 */
 	public Sales updateSale(@Valid Sales sale) {
 		return this.salesRepository.save(sale);
 	}
 
+	/**
+	 * Marks a sale as finished.
+	 *
+	 * @param id the sale ID
+	 * @return the updated sale
+	 */
 	public Sales finishSale(String id) {
 		Sales sale = findSaleById(id);
 		sale.validateSaleStatus();
@@ -65,6 +89,12 @@ public class RegisterSale {
 		return this.salesRepository.save(sale);
 	}
 
+	/**
+	 * Cancels a sale.
+	 *
+	 * @param saleId the sale ID
+	 * @return the updated sale
+	 */
 	public Sales cancelSale(String saleId) {
 		Sales sale = findSaleById(saleId);
 		sale.validateSaleStatus();
@@ -72,6 +102,14 @@ public class RegisterSale {
 		return this.salesRepository.save(sale);
 	}
 
+	/**
+	 * Adds a product to a sale.
+	 *
+	 * @param saleId      the sale ID
+	 * @param productCode the product code
+	 * @param quantity    the quantity to add
+	 * @return the updated sale
+	 */
 	public Sales addProduct(String saleId, String productCode, Integer quantity) {
 		Sales sale = findSaleById(saleId);
 		Product product = findProductByCode(productCode);
@@ -80,6 +118,14 @@ public class RegisterSale {
 		return this.salesRepository.save(sale);
 	}
 
+	/**
+	 * Removes a product from a sale.
+	 *
+	 * @param saleId      the sale ID
+	 * @param productCode the product code
+	 * @param quantity    the quantity to remove
+	 * @return the updated sale
+	 */
 	public Sales removeProduct(String saleId, String productCode, Integer quantity) {
 		Sales sale = findSaleById(saleId);
 		Product product = findProductByCode(productCode);
@@ -89,7 +135,8 @@ public class RegisterSale {
 	}
 
 	private Sales findSaleById(String saleId) {
-		return salesRepository.findById(saleId).orElseThrow(() -> new EntityNotFoundException(Sales.class, "id", saleId));
+		return salesRepository.findById(saleId)
+				.orElseThrow(() -> new EntityNotFoundException(Sales.class, "id", saleId));
 	}
 
 	private Product findProductByCode(String productCode) {

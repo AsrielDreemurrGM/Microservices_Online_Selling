@@ -23,6 +23,12 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 
 /**
+ * REST controller providing endpoints for managing sales.
+ * <p>
+ * This class handles HTTP requests related to sales operations such as
+ * searching, creating, finishing, canceling, and modifying sales records.
+ * </p>
+ * 
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 14, 2025
  */
@@ -38,18 +44,36 @@ public class SalesResources {
 		this.registerSale = registerSale;
 	}
 
+	/**
+	 * Retrieves all registered sales.
+	 *
+	 * @param pageable pagination information
+	 * @return a paginated list of sales
+	 */
 	@GetMapping
 	@Operation(summary = "Lists all registered Sales")
 	public ResponseEntity<Page<Sales>> searchAllSales(Pageable pageable) {
 		return ResponseEntity.ok(searchSale.searchAllSales(pageable));
 	}
 
+	/**
+	 * Finds a sale by its unique code.
+	 *
+	 * @param saleCode the sale code
+	 * @return the matching sale
+	 */
 	@GetMapping("/code/{saleCode}")
 	@Operation(summary = "Find a sale by its Code")
 	public ResponseEntity<Sales> searchSaleByCode(@PathVariable String saleCode) {
 		return ResponseEntity.ok(searchSale.searchByCode(saleCode));
 	}
 
+	/**
+	 * Registers a new sale.
+	 *
+	 * @param saleDTO the sale data
+	 * @return the registered sale
+	 */
 	@PostMapping
 	@Operation(summary = "Registers a new Sale", description = "Registers a Sale. Example: {\"code\":\"S001\", \"clientId\":\"1234\", \"saleDate\":\"2025-08-14T10:00:00Z\"}")
 	@ApiResponse(responseCode = "200", description = "Sale registered successfully", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, examples = @ExampleObject(value = "{\"id\":\"abc123\", \"code\":\"S001\", \"clientId\":\"1234\", \"status\":\"STARTED\", \"totalPrice\":0.0}")))
@@ -59,18 +83,38 @@ public class SalesResources {
 		return ResponseEntity.ok(registerSale.registerSale(saleDTO));
 	}
 
+	/**
+	 * Marks a sale as finished.
+	 *
+	 * @param saleId the ID of the sale
+	 * @return the updated sale
+	 */
 	@PutMapping("/{saleId}/finish")
 	@Operation(summary = "Finish a Sale")
 	public ResponseEntity<Sales> finishSale(@PathVariable String saleId) {
 		return ResponseEntity.ok(registerSale.finishSale(saleId));
 	}
 
+	/**
+	 * Cancels a sale.
+	 *
+	 * @param saleId the ID of the sale
+	 * @return the updated sale
+	 */
 	@PutMapping("/{saleId}/cancel")
 	@Operation(summary = "Cancel a Sale")
 	public ResponseEntity<Sales> cancelSale(@PathVariable String saleId) {
 		return ResponseEntity.ok(registerSale.cancelSale(saleId));
 	}
 
+	/**
+	 * Adds a product to a sale.
+	 *
+	 * @param saleId      the ID of the sale
+	 * @param productCode the code of the product
+	 * @param quantity    the quantity to add
+	 * @return the updated sale
+	 */
 	@PutMapping("/{saleId}/products/{productCode}/add/{quantity}")
 	@Operation(summary = "Add a Product to a Sale")
 	public ResponseEntity<Sales> addProduct(@PathVariable String saleId, @PathVariable String productCode,
@@ -78,6 +122,14 @@ public class SalesResources {
 		return ResponseEntity.ok(registerSale.addProduct(saleId, productCode, quantity));
 	}
 
+	/**
+	 * Removes a product from a sale.
+	 *
+	 * @param saleId      the ID of the sale
+	 * @param productCode the code of the product
+	 * @param quantity    the quantity to remove
+	 * @return the updated sale
+	 */
 	@PutMapping("/{saleId}/products/{productCode}/remove/{quantity}")
 	@Operation(summary = "Remove a Product from a Sale")
 	public ResponseEntity<Sales> removeProduct(@PathVariable String saleId, @PathVariable String productCode,
