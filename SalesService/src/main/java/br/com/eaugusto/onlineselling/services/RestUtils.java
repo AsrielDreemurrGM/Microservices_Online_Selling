@@ -13,9 +13,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * Utility class to handle REST calls
+ * Utility class to execute REST calls using RestTemplate and log requests,
+ * responses, and errors. Handles conversion of objects to JSON for logging and
+ * supports variable URI parameters. Provides centralized error handling and
+ * logging for all REST calls.
  * 
- * @author Eduardo Augusto
+ * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 14, 2025
  */
 @Component

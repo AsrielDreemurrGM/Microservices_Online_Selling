@@ -9,6 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 /**
+ * Service responsible for client-related operations, such as checking if a
+ * client is registered. Uses RestUtils to perform HTTP requests to the external
+ * client service.
+ * 
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 14, 2025
  */

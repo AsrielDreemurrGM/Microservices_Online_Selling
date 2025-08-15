@@ -13,6 +13,11 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
 /**
+ * Represents an HTTP request for REST communication. Supports setting headers,
+ * content type, acceptable media types, bearer token, and body content. Also
+ * supports multipart/form-data requests including files or images. Provides a
+ * method to return a fully constructed HttpEntity for execution.
+ * 
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 14, 2025
  */
