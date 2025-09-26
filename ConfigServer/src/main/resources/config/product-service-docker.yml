@@ -1,0 +1,16 @@
+server:
+  port: 8082
+  wait-time-in-ms-when-sync-empty: 3000
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://admin:admin@mongo:27017/admin?authSource=admin&retryWrites=true&w=majority
+      database: product
+      auto-index-creation: true
+
+application:
+  clientService:
+    url: client-service:8081
+
+application-version: 1.0

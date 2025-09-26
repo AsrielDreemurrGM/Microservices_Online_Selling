@@ -13,7 +13,7 @@ import br.com.eaugusto.onlineselling.domain.Product;
  * @author Eduardo Augusto (github.com/AsrielDreemurrGM/)
  * @since Aug 14, 2025
  */
-@FeignClient(name = "product", url = "${application.productService.url}")
+@FeignClient(name = "product-service", url = "${application.productService.url}")
 public interface IProductService {
 
 	@GetMapping(value = "/product/code/{code}", produces = "application/json", headers = "application/json")

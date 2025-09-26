@@ -1,0 +1,76 @@
+services:
+  config-server:
+    build: ./ConfigServer
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    environment:
+      - SPRING_PROFILES_ACTIVE=native
+
+  client-service:
+    build: ./ClientService
+    container_name: client-service
+    depends_on:
+      - config-server
+      - mongo
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_APPLICATION_NAME=client-service
+      - SPRING_CLOUD_CONFIG_URI=http://config-server:8888
+      - SPRING_CLOUD_CONFIG_FAIL_FAST=true
+      - SPRING_CLOUD_CONFIG_RETRY_MAX_ATTEMPTS=10
+      - SPRING_CLOUD_CONFIG_RETRY_INITIAL_INTERVAL=2000
+      - SPRING_CLOUD_CONFIG_RETRY_MULTIPLIER=1.5
+      - SPRING_CLOUD_CONFIG_RETRY_MAX_INTERVAL=10000
+    entrypoint: ["./wait-for-it.sh", "config-server:8888", "--", "./wait-for-it.sh", "mongo:27017", "--", "java", "-jar", "app.jar"]
+
+  product-service:
+    build: ./ProductService
+    container_name: product-service
+    depends_on:
+      - config-server
+      - mongo
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_APPLICATION_NAME=product-service
+      - SPRING_CLOUD_CONFIG_URI=http://config-server:8888
+      - SPRING_CLOUD_CONFIG_FAIL_FAST=true
+      - SPRING_CLOUD_CONFIG_RETRY_MAX_ATTEMPTS=10
+      - SPRING_CLOUD_CONFIG_RETRY_INITIAL_INTERVAL=2000
+      - SPRING_CLOUD_CONFIG_RETRY_MULTIPLIER=1.5
+      - SPRING_CLOUD_CONFIG_RETRY_MAX_INTERVAL=10000
+    entrypoint: ["./wait-for-it.sh", "config-server:8888", "--", "./wait-for-it.sh", "mongo:27017", "--", "java", "-jar", "app.jar"]
+
+  sales-service:
+    build: ./SalesService
+    container_name: sales-service
+    depends_on:
+      - config-server
+      - mongo
+      - product-service
+      - client-service
+    ports:
+      - "8083:8083"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_CLOUD_CONFIG_FAIL_FAST=true
+      - SPRING_CLOUD_CONFIG_URI=http://config-server:8888
+      - SPRING_CLOUD_CONFIG_RETRY_MAX_ATTEMPTS=10
+      - SPRING_CLOUD_CONFIG_RETRY_INITIAL_INTERVAL=2000
+      - SPRING_CLOUD_CONFIG_RETRY_MULTIPLIER=1.5
+      - SPRING_CLOUD_CONFIG_RETRY_MAX_INTERVAL=10000
+    entrypoint: ["./wait-for-it.sh", "config-server:8888", "--", "./wait-for-it.sh", "mongo:27017", "--", "java", "-jar", "app.jar"]
+
+  mongo:
+    image: mongo:7
+    container_name: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - "27017:27017"
