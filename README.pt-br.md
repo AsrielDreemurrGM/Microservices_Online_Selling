@@ -32,6 +32,14 @@
   <li><strong>Lombok</strong></li>
   <li><strong>JUnit + Mockito</strong> para testes</li>
 </ul>
+<h2>🐳 Suporte a Docker (branch dockerized)</h2>
+<ul>
+  <li>A branch <code>dockerized</code> contém o suporte completo a Docker.</li>
+  <li>Cada serviço possui um <code>Dockerfile</code> e <code>.dockerignore</code>.</li>
+  <li><code>docker-compose.yml</code> orquestra todos os serviços e o MongoDB.</li>
+  <li><code>wait-for-it.sh</code> garante que os serviços iniciem apenas após as dependências estarem prontas.</li>
+  <li>As configurações centralizadas são obtidas do <strong>ConfigServer</strong> usando hostnames do Docker.</li>
+</ul>
 <h2>📂 Módulos do Projeto</h2>
 <ul>
   <li><strong>ConfigServer</strong>: Gerenciamento centralizado de configuração para todos os microsserviços</li>
@@ -84,6 +92,10 @@
     <pre><code>Product Service: http://localhost:8082/swagger-ui.html</code></pre>
     <pre><code>Sales Service: http://localhost:8083/swagger-ui.html</code></pre>
   </li>
+  <li>Para executar com Docker (branch <code>dockerized</code>):
+    <pre><code>git checkout dockerized
+docker-compose up --build</code></pre>
+  </li>
 </ol>
 <h2>📜 Resumo do Histórico de Commits</h2>
 <ul>
@@ -97,4 +109,5 @@
   <li>Criação e melhoria de testes unitários para serviços de Cliente, Produto e Vendas</li>
   <li>Adição de Javadocs detalhados em todos os serviços, controladores, domínios e configs</li>
   <li>Refatoração de endpoints para maior clareza</li>
+  <li>Configuração de Docker para microsserviços (branch <code>dockerized</code>)</li>
 </ul>
